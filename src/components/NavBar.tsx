@@ -1,19 +1,6 @@
+import { Link } from 'react-router-dom'
 import asterisk from '../assets/Asterisk.svg'
-
-type projectLinksType = {
-    name: string,
-    href: string
-}
-
-const projectLinks : projectLinksType[] = [
-    {name: 'streamer', href: '/'},
-    {name: 'mortgage fee estimator', href: '/'},
-    {name: 'cool links', href: '/'},
-    {name: 'to do list', href: '/'},
-    {name: 'jazzberry blue maps', href: '/'},
-    {name: "fafnir's dragon", href: '/'},
-    {name: 'library', href: '/'}
-]
+import projectInfo from '../modules/projectInfo';
 
 function NavBar() {
     return (
@@ -26,10 +13,10 @@ function NavBar() {
                 <li>
                     <div className='h-4'></div>
                 </li>
-                {projectLinks.map((project) => {
+                {projectInfo.map((project) => {
                     return (
                         <li key={project.name}> 
-                            <a className='hover:text-lime-300' href={project.href}>{project.name}</a>
+                            <Link to={`/${project.id}`} className='hover:text-lime-300'>{project.name}</Link>
                         </li>
                     );
                 })}
@@ -38,7 +25,7 @@ function NavBar() {
                     <div className='h-8'></div>
                 </li>
                 <li>
-                    <a className='hover:text-gray-300' href='/'>about</a>
+                    <Link to="/about" className='hover:text-gray-300'>about</Link>
                 </li>
                 <li>
                     <div className='h-8'></div>
