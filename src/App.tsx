@@ -8,8 +8,8 @@ import Projects from "./pages/Projects";
 function App() {
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      <div className='flex gap-64 p-20'>
+    <div>
+      <div className='flex md:flex-row flex-col md:gap-64 md:p-20 p-10'>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
