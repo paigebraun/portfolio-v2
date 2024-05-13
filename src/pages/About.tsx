@@ -1,4 +1,5 @@
 import Contact from "../components/Contact";
+import Footer from '../components/Footer';
 
 function About() {
     return (
@@ -12,16 +13,16 @@ function About() {
                 <p>TypeScript</p>
                 <p>React</p>
                 <p>JavaScript</p>
-                <p>Express</p>
-                <p>HTML/CSS</p>
-                <p>Node.js</p>
                 <p>Python</p>
+                <p>Express</p>
+                <p>MongoDB</p>
+                <p>Node.js</p>
+                <p>HTML</p>
+                <p>CSS</p>
                 <p>Tailwind</p>
                 <p>Vite</p>
-                <p>MongoDB</p>
                 <p>Webpack</p>
                 <p>Premiere</p>
-                <p>Jest</p>
                 <p>Photoshop</p>
                 <p>Illustrator</p>
                 <p>After Effects</p>
@@ -32,6 +33,7 @@ function About() {
             <p>Bachelor of Science in Radio-Television-Film</p>
             <p>Elements of Computing Certificate</p>
             <Contact />
+            <Footer />
         </div>
     )
 }
