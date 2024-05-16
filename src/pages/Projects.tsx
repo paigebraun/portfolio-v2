@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import projectInfo, { Project } from '../modules/projectInfo';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import NotFound from './NotFound';
 import { MdOpenInNew, MdClose, MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 
 function toTitleCase(str: string) {
@@ -70,9 +71,7 @@ function Projects() {
     };
 
     if (!project) {
-        return (
-            <div>Project not found.</div>
-        )
+        return <NotFound />;
     }
 
     return (

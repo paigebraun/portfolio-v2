@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from "./pages/Projects";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path='/:projectId' element={<Projects />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
     </div>
