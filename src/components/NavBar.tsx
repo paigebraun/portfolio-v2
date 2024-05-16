@@ -35,6 +35,7 @@ function NavBar() {
                 <li>
                     <div className='md:h-8'></div>
                 </li>
+                {/* 
                 <li>
                     <a className='hidden md:block hover:text-gray-300' href='/'>photo</a>
                 </li>
@@ -53,11 +54,16 @@ function NavBar() {
                         </li>
                     ))}
                     <li>
+                        <div className='h-4'></div>
+                    </li>
+                    <li>
                         <Link to="/about" className='hover:text-gray-300' onClick={toggleMenu}>about</Link>
                     </li>
+                    {/* 
                     <li>
                         <a className='hover:text-gray-300' href='/' onClick={toggleMenu}>photo</a>
                     </li>
+                    */}
                 </ul>
             )}
         </nav>

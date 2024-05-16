@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import projectInfo, { Project } from '../modules/projectInfo';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { MdOpenInNew, MdClose, MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
-import React from 'react';
 
 function toTitleCase(str: string) {
     return str.replace(
@@ -20,6 +19,8 @@ function Projects() {
     const project: Project | undefined = projectInfo.find((project) => project.id === projectId);
 
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [imageLoaded, setImageLoaded] = useState<boolean[]>([]);
 
     const openImage = (index: number) => {
         setSelectedImageIndex(index);
@@ -27,6 +28,45 @@ function Projects() {
 
     const closeImage = () => {
         setSelectedImageIndex(null);
+    };
+
+    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (!touchStartX) {
+            setTouchStartX(event.touches[0].clientX);
+        }
+    };
+
+    const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (touchStartX) {
+            const touchMoveX = event.touches[0].clientX;
+            const diffX = touchMoveX - touchStartX;
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Swipe right
+                    openPrevImage();
+                } else {
+                    // Swipe left
+                    openNextImage();
+                }
+                setTouchStartX(null);
+            }
+        }
+    };
+
+    const openNextImage = () => {
+        setSelectedImageIndex((selectedImageIndex != null ? selectedImageIndex + 1 : 0 + (project?.src ? project.src.length : 0)) % (project?.src ? project.src.length : 1));
+    };
+    
+    const openPrevImage = () => {
+        setSelectedImageIndex((selectedImageIndex != null ? selectedImageIndex - 1 : 0 + (project?.src ? project.src.length : 0)) % (project?.src ? project.src.length : 1));
+    };
+
+    const handleImageLoad = (index: number) => {
+        setImageLoaded((prevLoaded) => {
+            const newLoaded = [...prevLoaded];
+            newLoaded[index] = true;
+            return newLoaded;
+        });
     };
 
     if (!project) {
@@ -62,16 +102,32 @@ function Projects() {
             )}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                 {project.src?.map((img, index) => (
-                    <img key={index} src={img} onClick={() => openImage(index)} alt={`Image ${index + 1}`} />
+                    <img
+                        key={index}
+                        src={img}
+                        onClick={() => openImage(index)}
+                        onLoad={() => handleImageLoad(index)}
+                        alt={`Image ${index + 1}`}
+                        style={{
+                            opacity: imageLoaded[index] ? 1 : 0,
+                            transition: 'opacity 0.5s',
+                            width: '100%',
+                            height: 'auto'
+                        }}
+                    />
                 ))}
             </div>
             {selectedImageIndex !== null && project.src && (
-                <div className='fixed inset-0 flex items-center justify-center bg-white bg-opacity-95'>
+                <div
+                    className='fixed inset-0 flex items-center justify-center bg-white bg-opacity-95'
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                >
                     <MdClose className='absolute top-4 right-4 text-gray-400 text-2xl cursor-pointer' onClick={closeImage}></MdClose>
-                    <MdOutlineArrowBackIos className='absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400 text-2xl cursor-pointer' onClick={() => openImage((selectedImageIndex - 1 + (project.src ? project.src.length : 0)) % (project.src ? project.src.length : 1))}></MdOutlineArrowBackIos>
-                    <MdOutlineArrowForwardIos className='absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-400 text-2xl cursor-pointer' onClick={() => openImage((selectedImageIndex + 1 + (project.src ? project.src.length : 0)) % (project.src ? project.src.length : 1))}></MdOutlineArrowForwardIos>
+                    <MdOutlineArrowBackIos className='absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400 text-2xl cursor-pointer' onClick={openPrevImage}></MdOutlineArrowBackIos>
+                    <MdOutlineArrowForwardIos className='absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-400 text-2xl cursor-pointer' onClick={openNextImage}></MdOutlineArrowForwardIos>
                     <div className='relative max-w-3xl'>
-                        <img src={project.src ? project.src[selectedImageIndex] : ''} alt={`Image ${selectedImageIndex + 1}`} className='max-w-full' />
+                        <img src={project.src[selectedImageIndex]} alt={`Image ${selectedImageIndex + 1}`} className='max-w-full' />
                     </div>
                 </div>
             )}
