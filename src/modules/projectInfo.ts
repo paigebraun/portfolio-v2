@@ -29,6 +29,11 @@ import ToDoList2 from '../assets/projectImg/ToDoList2.png';
 import ToDoList3 from '../assets/projectImg/ToDoList3.png';
 import ToDoList4 from '../assets/projectImg/ToDoList4.png';
 
+import WNBA1 from '../assets/projectImg/WNBA1.png';
+import WNBA2 from '../assets/projectImg/WNBA2.png';
+import WNBA3 from '../assets/projectImg/WNBA3.png';
+import WNBA4 from '../assets/projectImg/WNBA4.png';
+
 export interface Project {
     id: string;
     name: string;
@@ -40,6 +45,16 @@ export interface Project {
 }
   
 const projectInfo: Project[] = [
+    {   id: 'wnba-swish',
+        name: 'wnba swish',
+        description: `WNBA Swish is a web application that provides up-to-date information on WNBA games, including team stats, player stats, schedules, scores, and standings. The app aims to offer a comprehensive view of the current 2024 WNBA season, making it easy for fans to stay informed about their favorite teams and players.
+
+        My personal favorite team is the Las Vegas Aces. Let's get a three-peat!`,
+        tech: 'React, TypeScript, JavaScript, Tailwind, Express, Node.js, PostgreSQL, Vite, Swiper.js, D3.js, React-Router-DOM, Framer Motion',
+        livePreview: 'https://wnba-swish.vercel.app/',
+        code: 'https://github.com/paigebraun/wnba-swish',
+        src: [WNBA1, WNBA2, WNBA3, WNBA4]
+    },
     {
         id: 'streamer',
         name: 'streamer',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import projectInfo, { Project } from '../modules/projectInfo';
 import Contact from '../components/Contact';
@@ -15,6 +15,13 @@ function toTitleCase(str: string) {
     );
 }
 
+function formatProjectName(name: string) {
+    if (name.toLowerCase() === 'wnba swish') {
+        return 'WNBA Swish';
+    }
+    return toTitleCase(name);
+}
+
 function Projects() {
     const { projectId } = useParams<{ projectId: string }>();
     const project: Project | undefined = projectInfo.find((project) => project.id === projectId);
@@ -22,6 +29,17 @@ function Projects() {
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [imageLoaded, setImageLoaded] = useState<boolean[]>([]);
+
+    useEffect(() => {
+        if (selectedImageIndex !== null) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+        return () => {
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, [selectedImageIndex]);
 
     const openImage = (index: number) => {
         setSelectedImageIndex(index);
@@ -76,7 +94,7 @@ function Projects() {
 
     return (
         <div className='max-w-3xl flex-1 text-xs'>
-            <h3 className='font-bold mb-4'>{toTitleCase(project.name)}</h3>
+            <h3 className='font-bold mb-4'>{formatProjectName(project.name)}</h3>
             <p className='mb-4'>{project.description.split('\n').map((line, index) => (
                 <React.Fragment key={index}>
                     {line}

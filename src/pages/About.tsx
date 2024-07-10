@@ -17,6 +17,7 @@ function About() {
                 <p>Express</p>
                 <p>MongoDB</p>
                 <p>Node.js</p>
+                <p>PostgreSQL</p>
                 <p>HTML</p>
                 <p>CSS</p>
                 <p>Tailwind</p>
