@@ -84,7 +84,7 @@ const projectInfo: Project[] = [
         code: 'https://github.com/paigebraun/cool-links',
         src: [CoolLinks1, CoolLinks2, CoolLinks3]
     },
-    {
+    /*{
         id: 'to-do-list',
         name: 'to do list',
         description: 'A minimal, user-friendly to do list application that presents your daily tasks up front. Seamlessly transition to a comprehensive list view, add new tasks and delete old ones, or move tasks to different lists. Created to practice OOP and ES6 module syntax.',
@@ -92,7 +92,7 @@ const projectInfo: Project[] = [
         livePreview: 'https://paigebraun.github.io/todo-list/',
         code: 'https://github.com/paigebraun/todo-list',
         src: [ToDoList1, ToDoList2, ToDoList3, ToDoList4]
-    },
+    },*/
     {
         id: 'jazzberry-blue-maps',
         name: 'jazzberry blue maps',
@@ -110,7 +110,7 @@ const projectInfo: Project[] = [
         code: 'https://github.com/paigebraun/fafnirs-dragon',
         src: [Fafnir1, Fafnir2, Fafnir3, Fafnir4]
     },
-    {
+    /*{
         id: 'skeuomorphic-library',
         name: 'skeuomorphic library',
         description: 'A virtual library that mirrors the charm of its real-world counterpart. Simply add your favorite book, and unveil its cover image with a simple click. Keep track of which books have been read or delete titles from your library at any time. Explore the essence of a library reimagined, right at your fingertips.',
@@ -118,7 +118,7 @@ const projectInfo: Project[] = [
         livePreview: 'https://paigebraun.github.io/library/',
         code: 'https://github.com/paigebraun/library',
         src: [Library1, Library2]
-    },
+    },*/
     
 ];
   

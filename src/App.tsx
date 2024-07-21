@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
+import PhotoGallery from "./pages/PhotoGallery";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path='/:projectId' element={<Projects />} />
+          <Route path="/photo" element={<PhotoGallery />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>

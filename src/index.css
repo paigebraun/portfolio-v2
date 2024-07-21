@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --black: #000000;
+    --light-grey: #d3d3d3;
+  }
+
+/* Custom range input styling */
+input[type="range"].range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20%;
+  height: 1px;
+  background: linear-gradient(to right, var(--black) 0%, var(--black) 0%, var(--light-grey) 0%, var(--light-grey) 100%);
+  outline: none;
+  transition: all .15s ease-in-out;
+}
+
+input[type="range"].range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"].range-input::-moz-range-thumb {
+  width: 12px; 
+  height: 12px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"].range-input::-ms-thumb {
+  width: 12px;
+  height: 12px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"].range-input::-moz-range-track {
+  background: transparent;
+}
+
+input[type="range"].range-input::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"].range-input::-ms-fill-lower {
+  background: black;
+}
+
+input[type="range"].range-input::-ms-fill-upper {
+  background: #d3d3d3;
+}
