@@ -12,8 +12,8 @@ import FeeEstimate1 from '../assets/projectImg/FeeEstimate1.png';
 import FeeEstimate2 from '../assets/projectImg/FeeEstimate2.png';
 import FeeEstimate3 from '../assets/projectImg/FeeEstimate3.png';
 
-import Library1 from '../assets/projectImg/Library1.webp';
-import Library2 from '../assets/projectImg/Library2.webp';
+//import Library1 from '../assets/projectImg/Library1.webp';
+//import Library2 from '../assets/projectImg/Library2.webp';
 
 import Maps1 from '../assets/projectImg/Maps1.webp';
 import Maps2 from '../assets/projectImg/Maps2.webp';
@@ -24,10 +24,10 @@ import Streamer2 from '../assets/projectImg/Streamer2.png';
 import Streamer3 from '../assets/projectImg/Streamer3.png';
 import Streamer4 from '../assets/projectImg/Streamer4.png';
 
-import ToDoList1 from '../assets/projectImg/ToDoList1.png';
-import ToDoList2 from '../assets/projectImg/ToDoList2.png';
-import ToDoList3 from '../assets/projectImg/ToDoList3.png';
-import ToDoList4 from '../assets/projectImg/ToDoList4.png';
+//import ToDoList1 from '../assets/projectImg/ToDoList1.png';
+//import ToDoList2 from '../assets/projectImg/ToDoList2.png';
+//import ToDoList3 from '../assets/projectImg/ToDoList3.png';
+//import ToDoList4 from '../assets/projectImg/ToDoList4.png';
 
 import WNBA1 from '../assets/projectImg/WNBA1.png';
 import WNBA2 from '../assets/projectImg/WNBA2.png';
